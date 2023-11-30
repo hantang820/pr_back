@@ -127,14 +127,18 @@
 
 ```mermaid
 gantt
-    title A Gantt Diagram
+    title Django_Chatbot
     dateFormat  YYYY-MM-DD
-    section Section
-    A task           :a1, 2014-01-01, 30d
-    Another task     :after a1  , 20d
-    section Another
-    Task in sec      :2014-01-12  , 12d
-    another task      : 24d
+    section 기획 및 문서작업
+    주제 선정 및 기획 :a1, 2023-11-21 , 3d
+    UI 설계/목업페이지 작성     :after a1  , 1d
+    READEME 작성 : 2023-11-30 , 1d
+    section BE
+    로그인/회원가입 구현 :a2, 2023-11-24  , 3d
+    ChatGPT 연결, 챗봇 구현  :after a2 , 3d
+    section FE 
+    HTML/CSS 페이지 구현 :a3, 2023-11-26 , 2d
+    JS 작성 : 2023-11-27 , 3d
 ```
 
 ## 5. 와이어프레임/UI
