@@ -7,8 +7,8 @@
 [2. 개발 기술 및 환경](#2-개발-기술-및-환경)<br>
 [3. 요구사항 명세와 기능 명세](#3-요구사항-명세와-기능-명세)<br>
 [4. 프로젝트 구조와 개발 일정](#4-프로젝트-구조와-개발-일정)<br>
-[5.와이어프레임/UI](#5-1-와이어프레임)<br>
-[6. 데이터베이스 모델링(ERD)](#5-데이터베이스-모델링erd)<br>
+[5. 데이터베이스 모델링(ERD)](#5-데이터베이스-모델링erd)<br>
+[6.UI](#6-ui)<br>
 [7. 기능](#7-기능)<br>
 [8. 개발하며 느낀 점](#8-개발하며-느낀-점)<br>
 
@@ -141,23 +141,29 @@ gantt
     JS 작성 : 2023-11-27 , 3d
 ```
 
-## 5. 와이어프레임/UI
-### 5-1. 와이어프레임
+## 5. 데이터베이스 모델링(ERD)
 
-### 5-2. UI
+<img src="" width="80%">
+
+## 6. UI
+### 6-1. 목업페이지
+| | |
+|:-:|:-:|
+|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/a43a3f2e-fdec-4ff3-8fcd-f20375809650" width="100%">메인페이지|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/6deea09f-982f-48de-b270-7a47bd562cad" width="100%">로그인|
+|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/07ac5220-bc58-4160-bea4-c4e216a17546" width="100%">회원가입|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/1c0ff820-8869-4779-bba2-f7d3c75daffb" width="100%">양식입력|
+|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/2d096b6f-c006-4b1b-b133-e5c24f7cdb1a" width="100%">생성결과|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/476ea073-c74b-4bed-828b-2da619e7dc35" width="100%">채팅창|
+|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/000c4552-cf5e-46fa-97d5-0a0d943db01f" width="100%">보관함|<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/81052a1d-fc52-4f11-9c41-3d381e1a4bfe" width="100%"> 글 상세보기|
+
+## 7. 기능
 
 | | |
 |:-:|:-:|
-|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/4fabd0f0-5ddc-46be-92d0-1a15f3bdef81" width="100%">메인페이지|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/2b25b4e6-c332-4bc7-b6b9-156a03e1224d" width="100%">회원가입|
-|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/d64ad494-e6e2-47e5-b2ab-2e1ec8183653" width="100%">회원가입 성공|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/8ef5062a-8b0b-4817-a34f-d2d2dad69ff2" width="100%">로그인|
-|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/b207ddc2-0585-400f-a035-1eec5b5f19d4" width="100%">글목록|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/04f652c3-76f1-46d9-a383-4fe41bd062f3" width="100%">글작성|
-|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/15f4ef89-61f7-47b1-a4e6-cea064c017a2" width="100%">글삭제|<img src="https://github.com/hantang820/Django_Blog/assets/142385695/551f6e07-82d2-4521-b7c0-fe89f2bb0875" width="100%"> 글 상세보기|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/3217d88e-fefb-43b1-861e-6e42f822e8c8)|설명|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/06b06c25-c0fe-4fe0-b6fa-f08bd2e6c34e)|설명|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/5387464a-3fb2-4f0d-b653-1a296977360b)|설명|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/e1c22734-9600-460b-8d29-7387425ff36e)|설명|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/2a96d05c-7db1-4735-81c7-64a1779042be)|설명|
 
-## 6. 데이터베이스 모델링(ERD)
-
-<img src="https://github.com/hantang820/Django_Blog/assets/142385695/e15bf8fb-bf55-43b7-b44c-fea9a2927248" width="80%">
-
-## 7. 기능
 
 ## 8. 개발하며 느낀 점 
 - Django를 사용해서 페이지를 개발하는 게 얼마나 편리한지 느낄 수 있었습니다. 또, 모르는 부분이 많아 그 편리함을 제대로 이용하지 못한다는 것이 답답하게 느껴질 때도 많았습니다. 좋은 기능을 잘 활용하기 위해서 더 많이 공부해야겠다는 생각을 하게 된 프로젝트였습니다. 

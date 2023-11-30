@@ -1,13 +1,12 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.shortcuts import get_object_or_404
-from .models import Conversation
+from rest_framework.permissions import IsAuthenticated
 from .serializers import ConversationSerializer
+import os
 import openai
 from dotenv import load_dotenv
-import os
-from rest_framework.permissions import IsAuthenticated
+from .models import Conversation
 
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
