@@ -7,11 +7,13 @@ from .serializers import ConversationSerializer
 import openai
 from dotenv import load_dotenv
 import os
+from rest_framework.permissions import IsAuthenticated
 
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 class ChatbotView(APIView):
+    permission_classes = [IsAuthenticated] 
     serializer_class = ConversationSerializer
 
     def get(self, request):
