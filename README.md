@@ -10,7 +10,7 @@
 [5. 데이터베이스 모델링(ERD)](#5-데이터베이스-모델링erd)<br>
 [6.UI](#6-ui)<br>
 [7. 기능](#7-기능)<br>
-[8. 개발하며 느낀 점](#8-개발하며-느낀-점)<br>
+[8.회고](#8-회고)<br>
 
 ## 1. 목표와 기능
  ### 1-1. 목표
@@ -143,7 +143,7 @@ gantt
 
 ## 5. 데이터베이스 모델링(ERD)
 
-<img src="" width="80%">
+<img src="https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/ef318f3c-83b8-4128-b2b8-db674c5babc3" width="80%">
 
 ## 6. UI
 ### 6-1. 목업페이지
@@ -158,12 +158,71 @@ gantt
 
 | | |
 |:-:|:-:|
-|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/3217d88e-fefb-43b1-861e-6e42f822e8c8)|설명|
-|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/06b06c25-c0fe-4fe0-b6fa-f08bd2e6c34e)|설명|
-|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/5387464a-3fb2-4f0d-b653-1a296977360b)|설명|
-|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/e1c22734-9600-460b-8d29-7387425ff36e)|설명|
-|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/2a96d05c-7db1-4735-81c7-64a1779042be)|설명|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/3217d88e-fefb-43b1-861e-6e42f822e8c8)|# 회원가입 기능<br># 회원가입 완료시 로그인 페이지로 이동<br>|
+- CreateAPIView 이용
+- Password와 Confirm Password의 일치여부 확인
 
 
-## 8. 개발하며 느낀 점 
-- Django를 사용해서 페이지를 개발하는 게 얼마나 편리한지 느낄 수 있었습니다. 또, 모르는 부분이 많아 그 편리함을 제대로 이용하지 못한다는 것이 답답하게 느껴질 때도 많았습니다. 좋은 기능을 잘 활용하기 위해서 더 많이 공부해야겠다는 생각을 하게 된 프로젝트였습니다. 
+| | |
+|:-:|:-:|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/06b06c25-c0fe-4fe0-b6fa-f08bd2e6c34e)|#로그인 기능<br>#로그인 완료시 채팅 페이지로 이동|
+
+- GenericAPIView 이용
+- 로그인 시 토큰 발급
+- JWT 사용
+
+```python
+class LoginAPIView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        serializer = LoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token = RefreshToken.for_user(user)
+        tokens = {
+            'refresh_token': str(token),
+            'access_token': str(token.access_token)
+        }
+        return Response(tokens, status=status.HTTP_200_OK)
+```
+
+- FE에서 localStorage에 토큰 저장
+```JavaScript
+.then(data => {
+            localStorage.setItem('access_token', data.access_token);
+            localStorage.setItem('refresh_token', data.refresh_token);
+            location.href="./chat.html";
+
+        })
+```
+
+| | |
+|:-:|:-:|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/5387464a-3fb2-4f0d-b653-1a296977360b)|#채팅 기능<br>#ChatGPT와 실시간 대화가능|
+- User의 질문과 AI의 답변을 구분하여 출력
+- ChatGPT Openai 사용
+
+| | |
+|:-:|:-:|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/e1c22734-9600-460b-8d29-7387425ff36e)|#로그아웃 기능<br>#localStorage에 저장되어 있던 토큰 삭제 |
+- FE에서 JavaScript로 구현
+
+```JavaScript
+const logout = document.querySelector('#logout-btn');
+        logout.addEventListener('click', async function() {
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("refresh_token");
+            alert('로그아웃 되었습니다.');
+            location.href="./login.html";
+        });
+```
+
+| | |
+|:-:|:-:|
+|![gif](https://github.com/hantang820/Django_Chatbot_BE/assets/142385695/2a96d05c-7db1-4735-81c7-64a1779042be)|#로그인 한 사용자만 채팅 이용 가능<br>#알림창 발생 후 로그인 페이지로 이동|
+- FE에서 access_token 확인
+
+## 8. 회고
+- DRF에 대한 이해도가 낮은 상태에서 시작한 프로젝트라 초반 기획에 시간을 많이 빼앗겼습니다. 그래서 기획한 페이지를 전부 구현하지 못한 것에 많은 아쉬움이 남습니다.
+- 백엔드 개발자를 희망하고 있다고 해도 프론트에 대한 전반적인 지식을 갖추는 것이 중요하다는 걸 느꼈습니다.
