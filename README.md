@@ -1,5 +1,5 @@
 # Django_Chatbot
-## AboutME
+## AboutME 테스트
 입력한 조건에 맞게 자기소개서를 작성해주는 서비스입니다
 
 ## 목차
